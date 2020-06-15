@@ -59,7 +59,12 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("sound_enablemusic", 0);
     SetCVar("sound_listeneratcharacter", 1);
     SetCVar("spamfilter", 0);
+    SetCVar("threatplaysounds", 1);
     SetCVar("threatshownumeric", 1);
+    SetCVar("threatwarning", 2);
+    SetCVar("timemgralarmenabled", 0);
+    SetCVar("timemgruselocaltime", 0);
+    SetCVar("timemgrusemilitarytime", 1);
     SetCVar("unitnamecompanionname", 1);
     SetCVar("unitnameenemycreationname", 1);
     SetCVar("unitnameenemyguardianname", 1);
