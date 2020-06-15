@@ -1,4 +1,6 @@
 ## Interface: 80300
+## Notes: https://github.com/iterami/WoW-iterami-Addon
 ## Title: iterami
-## Notes:
 ## Version:
+
+iterami.lua
