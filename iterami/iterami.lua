@@ -66,7 +66,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("spamfilter", 0);
     SetCVar("threatplaysounds", 1);
     SetCVar("threatshownumeric", 1);
-    SetCVar("threatwarning", 2);
+    SetCVar("threatwarning", 3);
     SetCVar("timemgralarmenabled", 0);
     SetCVar("timemgruselocaltime", 0);
     SetCVar("timemgrusemilitarytime", 1);
