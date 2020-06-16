@@ -12,6 +12,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("autoquestwatch", 1);
     SetCVar("autoselfcast", 1);
     SetCVar("autostand", 1);
+    SetCVar("autounshift", 1);
     SetCVar("blocktrades", 0);
     SetCVar("bottomleftactionbar", 1);
     SetCVar("bottomrightactionbar", 1);
@@ -30,6 +31,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("donotflashlowhealthwarning", 1);
     SetCVar("enablefloatingcombattext", 1);
     SetCVar("enablemicrophone", 0);
+    SetCVar("enablemovepad", 0);
     SetCVar("enabletwitter", 0);
     SetCVar("enablevoicechat", 0);
     SetCVar("interactonleftclick", 0);
@@ -45,9 +47,12 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("rightactionbar", 1);
     SetCVar("righttwoactionbar", 1);
     SetCVar("rotateminimap", 0);
+    SetCVar("screenedgeflash", 0);
+    SetCVar("scripterrors", 1);
+    SetCVar("scriptprofile", 0);
+    SetCVar("scriptwarnings", 1);
     SetCVar("showarenaenemyframes", 1);
     SetCVar("showarenaenemypets", 1);
-    SetCVar("screenedgeflash", 0);
     SetCVar("showgametips", 1);
     SetCVar("showhonorasexperience", 1);
     SetCVar("showlootspam", 1);
@@ -84,6 +89,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("unitnameplayerguild", 1);
     SetCVar("unitnameplayerpvptitle", 1);
     SetCVar("violencelevel", 5);
+    SetCVar("whispermode", "popout");
 
     print(time() .. ": iterami config loaded");
 end
