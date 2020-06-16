@@ -18,6 +18,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("bottomrightactionbar", 1);
     SetCVar("buffdurations", 1);
     SetCVar("camerabobbing", 0);
+    SetCVar("cameradistancemax", 50);
     SetCVar("camerawatercollision", 0);
     SetCVar("chatbubbles", 1);
     SetCVar("chatbubblesparty", 0);
@@ -34,9 +35,13 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("enablemovepad", 0);
     SetCVar("enabletwitter", 0);
     SetCVar("enablevoicechat", 0);
+    SetCVar("extshadowquality", 0);
+    SetCVar("groundeffectdensity", 16);
+    SetCVar("groundeffectdist", 32);
     SetCVar("interactonleftclick", 0);
     SetCVar("lootundermouse", 0);
     SetCVar("mapfade", 0);
+    SetCVar("maxfps", 20);
     SetCVar("maxfpsbk", 8);
     SetCVar("mouseinvertpitch", 0);
     SetCVar("moviesubtitle", 1);
@@ -46,6 +51,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("rawmouseenable", 1);
     SetCVar("rightactionbar", 1);
     SetCVar("righttwoactionbar", 1);
+    SetCVar("rippledetail", 0);
     SetCVar("rotateminimap", 0);
     SetCVar("screenedgeflash", 0);
     SetCVar("scripterrors", 1);
@@ -64,6 +70,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("sound_enablemusic", 0);
     SetCVar("sound_listeneratcharacter", 1);
     SetCVar("spamfilter", 0);
+    SetCVar("sunshafts", 0);
     SetCVar("threatplaysounds", 1);
     SetCVar("threatshownumeric", 1);
     SetCVar("threatwarning", 3);
@@ -89,6 +96,8 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("unitnameplayerguild", 1);
     SetCVar("unitnameplayerpvptitle", 1);
     SetCVar("violencelevel", 5);
+    SetCVar("waterdetail", 0);
+    SetCVar("weatherdensity", 3);
     SetCVar("whispermode", "popout");
 
     print(time() .. ": iterami config loaded");
