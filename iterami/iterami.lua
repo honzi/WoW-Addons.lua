@@ -26,6 +26,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("colorchatnamesbyclass", 1);
     SetCVar("combatdamage", 1);
     SetCVar("combathealing", 1);
+    SetCVar("componenttexturelevel", 1);
     SetCVar("countdownforcooldowns", 1);
     SetCVar("deselectonclick", 1);
     SetCVar("displayfreebagslots", 0);
@@ -36,6 +37,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("enabletwitter", 0);
     SetCVar("enablevoicechat", 0);
     SetCVar("extshadowquality", 0);
+    SetCVar("farclip", 185);
     SetCVar("groundeffectdensity", 16);
     SetCVar("groundeffectdist", 32);
     SetCVar("interactonleftclick", 0);
@@ -71,6 +73,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("sound_listeneratcharacter", 1);
     SetCVar("spamfilter", 0);
     SetCVar("sunshafts", 0);
+    SetCVar("terrainmiplevel", 1);
     SetCVar("threatplaysounds", 1);
     SetCVar("threatshownumeric", 1);
     SetCVar("threatwarning", 3);
@@ -99,6 +102,8 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     SetCVar("waterdetail", 0);
     SetCVar("weatherdensity", 3);
     SetCVar("whispermode", "popout");
+    SetCVar("windowresizelock", 0);
+    SetCVar("worldbasemip", 2);
 
     print(time() .. ": iterami config loaded");
 end
