@@ -1,224 +1,134 @@
 local addonName, addonTable = ...
 
+local cvars = {
+  alwayscompareitems = 1,
+  autoclearafk = 1,
+  autodismount = 1,
+  autodismountflying = 0,
+  autointeract = 0,
+  autojoinbgvoice = 0,
+  autojoinpartyvoice = 0,
+  autolootdefault = 1,
+  autoquestwatch = 1,
+  autoselfcast = 1,
+  autostand = 1,
+  autounshift = 1,
+  blocktrades = 0,
+  breakuplargenumbers = 1,
+  buffdurations = 1,
+  camerabobbing = 0,
+  cameradistancemaxzoomfactor = 2.6,
+  camerawatercollision = 0,
+  chatbubbles = 1,
+  chatbubblesparty = 0,
+  chatclasscoloroverride = 0,
+  chatmousescroll = 1,
+  colorchatnamesbyclass = 1,
+  componenttexturelevel = 1,
+  countdownforcooldowns = 1,
+  deselectonclick = 1,
+  displayfreebagslots = 0,
+  displayworldpvpobjectives = 1,
+  donotflashlowhealthwarning = 1,
+  emphasizemyspelleffects = 0,
+  enablefloatingcombattext = 1,
+  enablemovepad = 0,
+  enabletwitter = 0,
+  farclip = 185,
+  footstepsounds = 1,
+  fullsizefocusframe = 1,
+  groundeffectdensity = 16,
+  groundeffectdist = 32,
+  interactonleftclick = 0,
+  lootundermouse = 0,
+  mapfade = 0,
+  maxfps = 20,
+  maxfpsbk = 8,
+  maxfpsloading = 8,
+  mouseinvertpitch = 0,
+  moviesubtitle = 1,
+  profanityfilter = 0,
+  raidoptiondisplaypets = 1,
+  raidoptionshowborders = 0,
+  rawmouseenable = 1,
+  rippledetail = 0,
+  rotateminimap = 0,
+  screenedgeflash = 0,
+  scripterrors = 1,
+  scriptprofile = 0,
+  scriptwarnings = 1,
+  showarenaenemyframes = 1,
+  showarenaenemypets = 1,
+  showhonorasexperience = 1,
+  showpartypets = 1,
+  showquestunitcircles = 1,
+  showtargetcastbar = 1,
+  showtargetoftarget = 1,
+  showtutorials = 1,
+  sound_enableemotesounds = 1,
+  sound_enablemusic = 0,
+  sound_listeneratcharacter = 1,
+  spamfilter = 0,
+  sunshafts = 0,
+  synchronizebindings = 1,
+  synchronizechatframes = 1,
+  synchronizeconfig = 1,
+  synchronizemacros = 1,
+  synchronizesettings = 1,
+  taintlog = 0,
+  terrainmiplevel = 1,
+  threatplaysounds = 1,
+  threatshownumeric = 1,
+  threatwarning = 3,
+  threatworldtext = 1,
+  timemgralarmenabled = 0,
+  timemgruselocaltime = 0,
+  timemgrusemilitarytime = 1,
+  transmogcurrentspeconly = 0,
+  unitnameenemyguardianname = 1,
+  unitnameenemyminionname = 1,
+  unitnameenemypetname = 1,
+  unitnameenemyplayername = 1,
+  unitnameenemytotemname = 1,
+  unitnamefriendlyguardianname = 1,
+  unitnamefriendlyminionname = 1,
+  unitnamefriendlypetname = 1,
+  unitnamefriendlyplayername = 1,
+  unitnamefriendlytotemname = 1,
+  unitnamenoncombatcreaturename = 1,
+  unitnamenpc = 1,
+  unitnameown = 0,
+  unitnameplayerguild = 1,
+  unitnameplayerpvptitle = 1,
+  violencelevel = 5,
+  waterdetail = 0,
+  weatherdensity = 3,
+  whispermode = "popout",
+  windowresizelock = 0,
+  worldbasemip = 2,
+};
+
 SLASH_ITERAMI_CONFIG1 = "/iterami_config";
 function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     C_VoiceChat.SetMuted(true);
     SetActionBarToggles(1, 1, 1, 0, 0);
 
-    SetCVar("alwayscompareitems", 1);
-    SetCVar("autoclearafk", 1);
-    SetCVar("autodismount", 1);
-    SetCVar("autodismountflying", 0);
-    SetCVar("autointeract", 0);
-    SetCVar("autojoinbgvoice", 0);
-    SetCVar("autojoinpartyvoice", 0);
-    SetCVar("autolootdefault", 1);
-    SetCVar("autoquestwatch", 1);
-    SetCVar("autoselfcast", 1);
-    SetCVar("autostand", 1);
-    SetCVar("autounshift", 1);
-    SetCVar("blocktrades", 0);
-    SetCVar("breakuplargenumbers", 1);
-    SetCVar("buffdurations", 1);
-    SetCVar("camerabobbing", 0);
-    SetCVar("cameradistancemaxzoomfactor", 2.6);
-    SetCVar("camerawatercollision", 0);
-    SetCVar("chatbubbles", 1);
-    SetCVar("chatbubblesparty", 0);
-    SetCVar("chatclasscoloroverride", 0);
-    SetCVar("chatmousescroll", 1);
-    SetCVar("colorchatnamesbyclass", 1);
-    SetCVar("componenttexturelevel", 1);
-    SetCVar("countdownforcooldowns", 1);
-    SetCVar("deselectonclick", 1);
-    SetCVar("displayfreebagslots", 0);
-    SetCVar("displayworldpvpobjectives", 1);
-    SetCVar("donotflashlowhealthwarning", 1);
-    SetCVar("emphasizemyspelleffects", 0);
-    SetCVar("enablefloatingcombattext", 1);
-    SetCVar("enablemovepad", 0);
-    SetCVar("enabletwitter", 0);
-    SetCVar("farclip", 185);
-    SetCVar("footstepsounds", 1);
-    SetCVar("fullsizefocusframe", 1);
-    SetCVar("groundeffectdensity", 16);
-    SetCVar("groundeffectdist", 32);
-    SetCVar("interactonleftclick", 0);
-    SetCVar("lootundermouse", 0);
-    SetCVar("mapfade", 0);
-    SetCVar("maxfps", 20);
-    SetCVar("maxfpsbk", 8);
-    SetCVar("maxfpsloading", 8);
-    SetCVar("mouseinvertpitch", 0);
-    SetCVar("moviesubtitle", 1);
-    SetCVar("profanityfilter", 0);
-    SetCVar("raidoptiondisplaypets", 1);
-    SetCVar("raidoptionshowborders", 0);
-    SetCVar("rawmouseenable", 1);
-    SetCVar("rippledetail", 0);
-    SetCVar("rotateminimap", 0);
-    SetCVar("screenedgeflash", 0);
-    SetCVar("scripterrors", 1);
-    SetCVar("scriptprofile", 0);
-    SetCVar("scriptwarnings", 1);
-    SetCVar("showarenaenemyframes", 1);
-    SetCVar("showarenaenemypets", 1);
-    SetCVar("showhonorasexperience", 1);
-    SetCVar("showpartypets", 1);
-    SetCVar("showquestunitcircles", 1);
-    SetCVar("showtargetcastbar", 1);
-    SetCVar("showtargetoftarget", 1);
-    SetCVar("showtutorials", 1);
-    SetCVar("sound_enableemotesounds", 1);
-    SetCVar("sound_enablemusic", 0);
-    SetCVar("sound_listeneratcharacter", 1);
-    SetCVar("spamfilter", 0);
-    SetCVar("sunshafts", 0);
-    SetCVar("synchronizebindings", 1);
-    SetCVar("synchronizechatframes", 1);
-    SetCVar("synchronizeconfig", 1);
-    SetCVar("synchronizemacros", 1);
-    SetCVar("synchronizesettings", 1);
-    SetCVar("taintlog", 0);
-    SetCVar("terrainmiplevel", 1);
-    SetCVar("threatplaysounds", 1);
-    SetCVar("threatshownumeric", 1);
-    SetCVar("threatwarning", 3);
-    SetCVar("threatworldtext", 1);
-    SetCVar("timemgralarmenabled", 0);
-    SetCVar("timemgruselocaltime", 0);
-    SetCVar("timemgrusemilitarytime", 1);
-    SetCVar("transmogcurrentspeconly", 0);
-    SetCVar("unitnameenemyguardianname", 1);
-    SetCVar("unitnameenemyminionname", 1);
-    SetCVar("unitnameenemypetname", 1);
-    SetCVar("unitnameenemyplayername", 1);
-    SetCVar("unitnameenemytotemname", 1);
-    SetCVar("unitnamefriendlyguardianname", 1);
-    SetCVar("unitnamefriendlyminionname", 1);
-    SetCVar("unitnamefriendlypetname", 1);
-    SetCVar("unitnamefriendlyplayername", 1);
-    SetCVar("unitnamefriendlytotemname", 1);
-    SetCVar("unitnamenoncombatcreaturename", 1);
-    SetCVar("unitnamenpc", 1);
-    SetCVar("unitnameown", 0);
-    SetCVar("unitnameplayerguild", 1);
-    SetCVar("unitnameplayerpvptitle", 1);
-    SetCVar("violencelevel", 5);
-    SetCVar("waterdetail", 0);
-    SetCVar("weatherdensity", 3);
-    SetCVar("whispermode", "popout");
-    SetCVar("windowresizelock", 0);
-    SetCVar("worldbasemip", 2);
+    for key,value in ipairs(cvars) do
+        SetCVar(key, value);
+    end
 
     print(time() .. ": iterami config loaded");
 end
 
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
 function SlashCmdList.ITERAMI_PRINT(msg, editbox)
-    print("alwayscompareitems: " .. GetCVar("alwayscompareitems"));
-    print("autoclearafk: " .. GetCVar("autoclearafk"));
-    print("autodismount: " .. GetCVar("autodismount"));
-    print("autodismountflying: " .. GetCVar("autodismountflying"));
-    print("autointeract: " .. GetCVar("autointeract"));
-    print("autojoinbgvoice: " .. GetCVar("autojoinbgvoice"));
-    print("autojoinpartyvoice: " .. GetCVar("autojoinpartyvoice"));
-    print("autolootdefault: " .. GetCVar("autolootdefault"));
-    print("autoquestwatch: " .. GetCVar("autoquestwatch"));
-    print("autoselfcast: " .. GetCVar("autoselfcast"));
-    print("autostand: " .. GetCVar("autostand"));
-    print("autounshift: " .. GetCVar("autounshift"));
-    print("blocktrades: " .. GetCVar("blocktrades"));
-    print("breakuplargenumbers: " .. GetCVar("breakuplargenumbers"));
-    print("buffdurations: " .. GetCVar("buffdurations"));
-    print("camerabobbing: " .. GetCVar("camerabobbing"));
-    print("cameradistancemaxzoomfactor: " .. GetCVar("cameradistancemaxzoomfactor"));
-    print("camerawatercollision: " .. GetCVar("camerawatercollision"));
-    print("chatbubbles: " .. GetCVar("chatbubbles"));
-    print("chatbubblesparty: " .. GetCVar("chatbubblesparty"));
-    print("chatclasscoloroverride: " .. GetCVar("chatclasscoloroverride"));
-    print("chatmousescroll: " .. GetCVar("chatmousescroll"));
-    print("colorchatnamesbyclass: " .. GetCVar("colorchatnamesbyclass"));
-    print("componenttexturelevel: " .. GetCVar("componenttexturelevel"));
-    print("countdownforcooldowns: " .. GetCVar("countdownforcooldowns"));
-    print("deselectonclick: " .. GetCVar("deselectonclick"));
-    print("displayfreebagslots: " .. GetCVar("displayfreebagslots"));
-    print("displayworldpvpobjectives: " .. GetCVar("displayworldpvpobjectives"));
-    print("donotflashlowhealthwarning: " .. GetCVar("donotflashlowhealthwarning"));
-    print("emphasizemyspelleffects: " .. GetCVar("emphasizemyspelleffects"));
-    print("enablefloatingcombattext: " .. GetCVar("enablefloatingcombattext"));
-    print("enablemovepad: " .. GetCVar("enablemovepad"));
-    print("enabletwitter: " .. GetCVar("enabletwitter"));
-    print("farclip: " .. GetCVar("farclip"));
-    print("footstepsounds: " .. GetCVar("footstepsounds"));
-    print("fullsizefocusframe: " .. GetCVar("fullsizefocusframe"));
-    print("groundeffectdensity: " .. GetCVar("groundeffectdensity"));
-    print("groundeffectdist: " .. GetCVar("groundeffectdist"));
-    print("interactonleftclick: " .. GetCVar("interactonleftclick"));
-    print("lootundermouse: " .. GetCVar("lootundermouse"));
-    print("mapfade: " .. GetCVar("mapfade"));
-    print("maxfps: " .. GetCVar("maxfps"));
-    print("maxfpsbk: " .. GetCVar("maxfpsbk"));
-    print("maxfpsloading: " .. GetCVar("maxfpsloading"));
-    print("mouseinvertpitch: " .. GetCVar("mouseinvertpitch"));
-    print("moviesubtitle: " .. GetCVar("moviesubtitle"));
-    print("profanityfilter: " .. GetCVar("profanityfilter"));
-    print("raidoptiondisplaypets: " .. GetCVar("raidoptiondisplaypets"));
-    print("raidoptionshowborders: " .. GetCVar("raidoptionshowborders"));
-    print("rawmouseenable: " .. GetCVar("rawmouseenable"));
-    print("rippledetail: " .. GetCVar("rippledetail"));
-    print("rotateminimap: " .. GetCVar("rotateminimap"));
-    print("screenedgeflash: " .. GetCVar("screenedgeflash"));
-    print("scripterrors: " .. GetCVar("scripterrors"));
-    print("scriptprofile: " .. GetCVar("scriptprofile"));
-    print("scriptwarnings: " .. GetCVar("scriptwarnings"));
-    print("showarenaenemyframes: " .. GetCVar("showarenaenemyframes"));
-    print("showarenaenemypets: " .. GetCVar("showarenaenemypets"));
-    print("showhonorasexperience: " .. GetCVar("showhonorasexperience"));
-    print("showpartypets: " .. GetCVar("showpartypets"));
-    print("showquestunitcircles: " .. GetCVar("showquestunitcircles"));
-    print("showtargetcastbar: " .. GetCVar("showtargetcastbar"));
-    print("showtargetoftarget: " .. GetCVar("showtargetoftarget"));
-    print("showtutorials: " .. GetCVar("showtutorials"));
-    print("sound_enableemotesounds: " .. GetCVar("sound_enableemotesounds"));
-    print("sound_enablemusic: " .. GetCVar("sound_enablemusic"));
-    print("sound_listeneratcharacter: " .. GetCVar("sound_listeneratcharacter"));
-    print("spamfilter: " .. GetCVar("spamfilter"));
-    print("sunshafts: " .. GetCVar("sunshafts"));
-    print("synchronizebindings: " .. GetCVar("synchronizebindings"));
-    print("synchronizechatframes: " .. GetCVar("synchronizechatframes"));
-    print("synchronizeconfig: " .. GetCVar("synchronizeconfig"));
-    print("synchronizemacros: " .. GetCVar("synchronizemacros"));
-    print("synchronizesettings: " .. GetCVar("synchronizesettings"));
-    print("taintlog: " .. GetCVar("taintlog"));
-    print("terrainmiplevel: " .. GetCVar("terrainmiplevel"));
-    print("threatplaysounds: " .. GetCVar("threatplaysounds"));
-    print("threatshownumeric: " .. GetCVar("threatshownumeric"));
-    print("threatwarning: " .. GetCVar("threatwarning"));
-    print("threatworldtext: " .. GetCVar("threatworldtext"));
-    print("timemgralarmenabled: " .. GetCVar("timemgralarmenabled"));
-    print("timemgruselocaltime: " .. GetCVar("timemgruselocaltime"));
-    print("timemgrusemilitarytime: " .. GetCVar("timemgrusemilitarytime"));
-    print("transmogcurrentspeconly: " .. GetCVar("transmogcurrentspeconly"));
-    print("unitnameenemyguardianname: " .. GetCVar("unitnameenemyguardianname"));
-    print("unitnameenemyminionname: " .. GetCVar("unitnameenemyminionname"));
-    print("unitnameenemypetname: " .. GetCVar("unitnameenemypetname"));
-    print("unitnameenemyplayername: " .. GetCVar("unitnameenemyplayername"));
-    print("unitnameenemytotemname: " .. GetCVar("unitnameenemytotemname"));
-    print("unitnamefriendlyguardianname: " .. GetCVar("unitnamefriendlyguardianname"));
-    print("unitnamefriendlyminionname: " .. GetCVar("unitnamefriendlyminionname"));
-    print("unitnamefriendlypetname: " .. GetCVar("unitnamefriendlypetname"));
-    print("unitnamefriendlyplayername: " .. GetCVar("unitnamefriendlyplayername"));
-    print("unitnamefriendlytotemname: " .. GetCVar("unitnamefriendlytotemname"));
-    print("unitnamenoncombatcreaturename: " .. GetCVar("unitnamenoncombatcreaturename"));
-    print("unitnamenpc: " .. GetCVar("unitnamenpc"));
-    print("unitnameown: " .. GetCVar("unitnameown"));
-    print("unitnameplayerguild: " .. GetCVar("unitnameplayerguild"));
-    print("unitnameplayerpvptitle: " .. GetCVar("unitnameplayerpvptitle"));
-    print("violencelevel: " .. GetCVar("violencelevel"));
-    print("waterdetail: " .. GetCVar("waterdetail"));
-    print("weatherdensity: " .. GetCVar("weatherdensity"));
-    print("whispermode: " .. GetCVar("whispermode"));
-    print("windowresizelock: " .. GetCVar("windowresizelock"));
-    print("worldbasemip: " .. GetCVar("worldbasemip"));
+    local keys = {};
+    for key in pairs(cvars) do
+        table.insert(keys, key);
+    end
+    table.sort(keys);
+
+    for key,value in ipairs(keys) do
+        print(value .. ": " .. GetCVar(value));
+    end
 end
