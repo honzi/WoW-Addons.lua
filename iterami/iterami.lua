@@ -159,6 +159,6 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        print(value .. ": " .. GetCVar(value));
+        print(value .. "=" .. GetCVar(value) .. ", iterami=" .. cvars[value] .. ", default=" .. GetCVarDefault(value));
     end
 end
