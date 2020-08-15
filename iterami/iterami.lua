@@ -150,7 +150,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
         SetCVar(key, value);
     end
 
-    print(time() .. ": iterami config loaded");
+    print(date("%Y-%m-%d %H:%M:%S") .. ": iterami config loaded");
 end
 
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
