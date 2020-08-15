@@ -1,6 +1,9 @@
 local addonName, addonTable = ...
 
 local cvars = {
+  actionbuttonusekeydown = 1,
+  advancedcombatlogging = 0,
+  advancedwatchframe = 1,
   alwayscompareitems = 1,
   alwaysshowactionbars = 0,
   autoclearafk = 1,
@@ -159,6 +162,8 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        print(value .. "=" .. GetCVar(value) .. ", iterami=" .. cvars[value] .. ", default=" .. GetCVarDefault(value));
+        if tostring(GetCVar(value)) ~= tostring(cvars[value]) then
+            print(value .. "=" .. GetCVar(value) .. ", iterami=" .. cvars[value] .. ", default=" .. GetCVarDefault(value));
+        end
     end
 end
