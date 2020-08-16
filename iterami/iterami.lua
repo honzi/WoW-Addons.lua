@@ -157,14 +157,20 @@ local cvars = {
 
 SLASH_ITERAMI_CONFIG1 = "/iterami_config";
 function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
-    C_VoiceChat.SetMuted(true);
-    SetActionBarToggles(1, 1, 1, 0, 0);
+    local keys = {};
+    for key in pairs(cvars) do
+        table.insert(keys, key);
+    end
+    table.sort(keys);
 
-    for key,value in ipairs(cvars) do
-        SetCVar(key, value);
+    for key,value in ipairs(keys) do
+        if tostring(GetCVar(value)) ~= tostring(cvars[value]) then
+            print("Setting " .. value .. " to " .. tostring(cvars[value]) .. ": " .. tostring(SetCVar(value, cvars[value])));
+        end
     end
 
-    print(date("%Y-%m-%d %H:%M:%S") .. ": iterami config loaded");
+    C_VoiceChat.SetMuted(true);
+    SetActionBarToggles(1, 1, 1, 0, 0);
 end
 
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
