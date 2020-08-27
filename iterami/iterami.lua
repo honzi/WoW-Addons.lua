@@ -90,6 +90,7 @@ local cvars = {
   mouseuselazyrepositioning = 1,
   moviesubtitle = 1,
   multibarrightverticallayout = 0,
+  nobuffdebufffilterontarget = 1,
   objectselectioncircle = 1,
   predictedhealth = 1,
   profanityfilter = 0,
