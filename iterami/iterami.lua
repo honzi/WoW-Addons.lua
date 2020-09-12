@@ -1,5 +1,15 @@
 local addonName, addonTable = ...
 
+hooksecurefunc(
+  "GameTooltip_SetDefaultAnchor",
+  function(self, parent)
+      self:SetOwner(
+        parent,
+        "ANCHOR_CURSOR"
+      );
+  end
+);
+
 local cvars = {
   actionbuttonusekeydown = 1,
   advancedcombatlogging = 0,
