@@ -266,7 +266,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     C_VoiceChat.SetMuted(true);
     SetActionBarToggles(1, 1, 1, 0, 0);
 
-    print(date("%Y-%m-%d %H:%M:%S") .. ": /iterami_config");
+    print(date("%H:%M:%S") .. ": /iterami_config");
 end
 
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
@@ -283,5 +283,5 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
         end
     end
 
-    print(date("%Y-%m-%d %H:%M:%S") .. ": /iterami_print");
+    print(date("%H:%M:%S") .. ": /iterami_print");
 end
