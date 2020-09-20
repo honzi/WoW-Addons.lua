@@ -218,6 +218,7 @@ local cvars = {
   timemgralarmenabled = 0,
   timemgruselocaltime = 0,
   timemgrusemilitarytime = 1,
+  trackquestsorting = "top",
   transmogcurrentspeconly = 0,
   transmogrifyshowcollected = 1,
   transmogrifyshowuncollected = 0,
@@ -246,6 +247,12 @@ local cvars = {
   whispermode = "popout",
   windowresizelock = 0,
   worldbasemip = 2,
+  worldquestfilterartifactpower = 1,
+  worldquestfilterequipment = 1,
+  worldquestfiltergold = 1,
+  worldquestfilterprofessionmaterials = 1,
+  worldquestfilterreputation = 1,
+  worldquestfilterresources = 1,
   xpbartext = 1,
 };
 
