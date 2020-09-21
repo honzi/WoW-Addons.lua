@@ -1,5 +1,6 @@
 local addonName, addonTable = ...
 
+-- Anchor tooltips to mouse.
 hooksecurefunc(
   "GameTooltip_SetDefaultAnchor",
   function(self, parent)
@@ -10,6 +11,34 @@ hooksecurefunc(
   end
 );
 
+-- Color target/focus frames based on class color.
+local frame = CreateFrame("FRAME");
+frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
+frame:RegisterEvent("PLAYER_TARGET_CHANGED");
+
+frame:SetScript(
+  "OnEvent",
+  function(self, event, ...)
+      if UnitIsPlayer("focus") then
+          local color = RAID_CLASS_COLORS[select(2, UnitClass("focus"))];
+          FocusFrameNameBackground:SetVertexColor(
+            color.r,
+            color.g,
+            color.b
+          );
+      end
+      if UnitIsPlayer("target") then
+          local color = RAID_CLASS_COLORS[select(2, UnitClass("target"))];
+          TargetFrameNameBackground:SetVertexColor(
+            color.r,
+            color.g,
+            color.b
+          );
+      end
+  end
+);
+
+-- iterami CVars values.
 local cvars = {
   actionbuttonusekeydown = 1,
   addfriendinfoshown = 1,
@@ -256,6 +285,7 @@ local cvars = {
   xpbartext = 1,
 };
 
+-- Slash command for enforcing CVar values to iterami defaults.
 SLASH_ITERAMI_CONFIG1 = "/iterami_config";
 function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     local keys = {};
@@ -276,6 +306,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     print(date("%H:%M:%S") .. ": /iterami_config");
 end
 
+-- Slash command for printing CVars that have values that differ from iterami defaults.
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
 function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     local keys = {};
