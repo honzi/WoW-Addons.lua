@@ -15,28 +15,43 @@ hooksecurefunc(
 local frame = CreateFrame("FRAME");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
-
 frame:SetScript(
   "OnEvent",
   function(self, event, ...)
-      if UnitIsPlayer("focus") then
-          local color = RAID_CLASS_COLORS[select(2, UnitClass("focus"))];
-          FocusFrameNameBackground:SetVertexColor(
-            color.r,
-            color.g,
-            color.b
+      if UnitExists("focus") then
+          update_colors(
+            "focus",
+            FocusFrame,
+            FocusFrameNameBackground
           );
       end
-      if UnitIsPlayer("target") then
-          local color = RAID_CLASS_COLORS[select(2, UnitClass("target"))];
-          TargetFrameNameBackground:SetVertexColor(
-            color.r,
-            color.g,
-            color.b
+      if UnitExists("target") then
+          update_colors(
+            "target",
+            TargetFrame,
+            TargetFrameNameBackground
           );
       end
   end
 );
+function update_colors(type, frame, framebackground)
+    local classcolor = RAID_CLASS_COLORS[select(2, UnitClass(type))];
+    framebackground:SetVertexColor(
+      classcolor.r,
+      classcolor.g,
+      classcolor.b
+    );
+
+    local green = 0;
+    local red = 0;
+    if UnitIsEnemy("player", type) then
+        red = 1;
+    else
+        green = 1;
+    end
+    frame.levelText:SetTextColor(red, green, 0);
+    frame.name:SetTextColor(red, green, 0);
+end
 
 -- iterami CVars values.
 local cvars = {
