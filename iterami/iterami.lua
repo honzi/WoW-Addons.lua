@@ -42,11 +42,13 @@ function update_colors(type, frame, framebackground)
       classcolor.b
     );
 
+    local reaction = UnitReaction(type, "player");
     local green = 0;
     local red = 0;
-    if UnitIsEnemy("player", type) then
+    if reaction < 5 then
         red = 1;
-    else
+    end
+    if reaction > 3 then
         green = 1;
     end
     frame.levelText:SetTextColor(red, green, 0);
