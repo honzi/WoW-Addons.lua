@@ -11,7 +11,7 @@ hooksecurefunc(
   end
 );
 
--- Color target/focus frames based on class color.
+-- Add color target/focus frames based on unit class and reaction.
 local frame = CreateFrame("FRAME");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
