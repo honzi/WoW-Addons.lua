@@ -43,6 +43,10 @@ function update_colors(type, frame, framebackground)
     );
 
     local reaction = UnitReaction(type, "player");
+    if reaction == nil then
+        reaction = 0;
+    end
+
     local green = 0;
     local red = 0;
     if reaction < 5 then
