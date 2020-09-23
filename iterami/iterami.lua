@@ -49,10 +49,10 @@ function update_colors(type, frame, framebackground)
 
     local green = 0;
     local red = 0;
-    if reaction < 5 then
+    if reaction <= 4 then
         red = 1;
     end
-    if reaction > 3 then
+    if reaction >= 4 then
         green = 1;
     end
     frame.levelText:SetTextColor(red, green, 0);
