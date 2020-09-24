@@ -11,7 +11,7 @@ hooksecurefunc(
   end
 );
 
--- Hide actionbar gryphons.
+-- Hide actionbar background and gryphons.
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
