@@ -14,6 +14,7 @@ hooksecurefunc(
 -- Hide actionbar gryphons.
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
+MainMenuBarArtFrameBackground:Hide();
 
 -- Add color target/focus frames based on unit class and reaction.
 local frame = CreateFrame("FRAME");
