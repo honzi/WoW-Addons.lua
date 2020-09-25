@@ -11,10 +11,15 @@ hooksecurefunc(
   end
 );
 
--- Hide actionbar background and gryphons.
+-- Hide various default UI frames.
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
+RegisterStateDriver(
+  StanceBarFrame,
+  "visibility",
+  "hide"
+);
 
 -- Add color target/focus frames based on unit class and reaction.
 local frame = CreateFrame("FRAME");
