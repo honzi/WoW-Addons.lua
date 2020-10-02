@@ -16,6 +16,11 @@ MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
 RegisterStateDriver(
+  PlayerFrameGroupIndicator,
+  "visibility",
+  "hide"
+);
+RegisterStateDriver(
   StanceBarFrame,
   "visibility",
   "hide"
@@ -79,7 +84,7 @@ if UnitClass("player") == "Druid" then
     druidframe:SetPoint(
       "CENTER",
       PlayerFrame,
-      25,
+      50,
       40
     );
     druidframe:SetSize(1, 1);
@@ -91,6 +96,7 @@ if UnitClass("player") == "Druid" then
     druidframe.text:SetPoint("CENTER");
 
     druidframe:RegisterEvent("UNIT_POWER_FREQUENT");
+    druidframe:RegisterEvent("UPDATE_SHAPESHIFT_FORM");
     druidframe:SetScript(
       "OnEvent",
       function(self, event, ...)
