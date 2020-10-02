@@ -69,6 +69,36 @@ function update_colors(type, frame, framebackground)
     frame.name:SetTextColor(red, green, 0);
 end
 
+-- Display mana when in druid shapeshift forms.
+if UnitClass("player") == "Druid" then
+    local druidframe = CreateFrame(
+      "FRAME",
+      nil,
+      PlayerFrame
+    );
+    druidframe:SetPoint(
+      "CENTER",
+      PlayerFrame,
+      25,
+      40
+    );
+    druidframe:SetSize(1, 1);
+    druidframe.text = druidframe:CreateFontString(
+      nil,
+      "OVERLAY",
+      "GameFontNormal"
+    );
+    druidframe.text:SetPoint("CENTER");
+
+    druidframe:RegisterEvent("UNIT_POWER_FREQUENT");
+    druidframe:SetScript(
+      "OnEvent",
+      function(self, event, ...)
+          self.text:SetText(UnitPower("player", 0) .. "/" .. UnitPowerMax("player", 0));
+      end
+    );
+end
+
 -- iterami CVars values.
 local cvars = {
   actionbuttonusekeydown = 1,
