@@ -1,4 +1,4 @@
-## Interface: 80300
+## Interface: 90001
 ## Notes: https://github.com/iterami/WoW-iterami-Addon
 ## Title: iterami
 ## Version:
