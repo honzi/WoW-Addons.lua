@@ -3,4 +3,5 @@
 ## Title: iterami
 ## Version:
 
-iterami.lua
+iterami-cvars.lua
+iterami-code.lua
