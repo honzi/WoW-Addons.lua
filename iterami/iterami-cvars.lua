@@ -119,6 +119,7 @@ addonTable.cvars = {
   graphicsoutlinemode = 1,
   graphicsparticledensity = 3,
   graphicsprojectedtextures = 2,
+  graphicsquality = 1,
   graphicsshadowquality = 1,
   graphicsspelldensity = 6,
   graphicsssao = 1,
