@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local addonName, addonTable = ...;
 
 -- iterami CVar values.
 addonTable.cvars = {

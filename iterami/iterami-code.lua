@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local addonName, addonTable = ...;
 
 -- Anchor tooltips to mouse.
 hooksecurefunc(
