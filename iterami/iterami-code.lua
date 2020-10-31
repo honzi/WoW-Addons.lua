@@ -74,7 +74,7 @@ function update_colors(type, frame, framebackground)
     frame.name:SetTextColor(red, green, 0);
 end
 
--- Display mana when in druid shapeshift forms.
+-- Add extra mana display for druids.
 if UnitClass("player") == "Druid" then
     local druidframe = CreateFrame(
       "FRAME",
@@ -105,7 +105,7 @@ if UnitClass("player") == "Druid" then
     );
 end
 
--- Slash command for enforcing CVar values to iterami defaults.
+-- Slash command for setting CVar values to iterami defaults.
 SLASH_ITERAMI_CONFIG1 = "/iterami_config";
 function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     local keys = {};
