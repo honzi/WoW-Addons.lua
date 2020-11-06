@@ -116,7 +116,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
 
     for key,value in ipairs(keys) do
         if tostring(GetCVar(value)) ~= tostring(addonTable.cvars[value]) then
-            print("Setting " .. value .. " to " .. tostring(addonTable.cvars[value]) .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
+            print(value .. "=" .. tostring(addonTable.cvars[value]) .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
         end
     end
 
