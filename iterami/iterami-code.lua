@@ -115,8 +115,9 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        if tostring(GetCVar(value)) ~= tostring(addonTable.cvars[value]) then
-            print(value .. "=" .. tostring(addonTable.cvars[value]) .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
+        local default = tostring(addonTable.cvars[value]);
+        if tostring(GetCVar(value)) ~= default then
+            print(value .. "=" .. default .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
         end
     end
 
@@ -136,8 +137,9 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        if tostring(GetCVar(value)) ~= tostring(addonTable.cvars[value]) then
-            print(value .. "=" .. GetCVar(value) .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. GetCVarDefault(value));
+        local cvar_value = tostring(GetCVar(value));
+        if cvar_value ~= tostring(addonTable.cvars[value]) then
+            print(value .. "=" .. cvar_value .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. GetCVarDefault(value));
         end
     end
 
