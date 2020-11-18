@@ -1,4 +1,4 @@
-## Interface: 90001
+## Interface: 90002
 ## Notes: https://github.com/iterami/WoW-iterami-Addon
 ## Title: iterami
 ## Version:

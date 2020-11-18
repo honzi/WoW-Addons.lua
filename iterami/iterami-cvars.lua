@@ -205,7 +205,6 @@ addonTable.cvars = {
   shownpetutorials = 0,
   showpartypets = 1,
   showquestobjectivesonmap = 1,
-  showquesttrackingtooltips = 1,
   showquestunitcircles = 1,
   showspectatorteamcircles = 1,
   showspenderfeedback = 1,
