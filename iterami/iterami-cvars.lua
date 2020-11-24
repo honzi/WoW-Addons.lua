@@ -292,6 +292,7 @@ addonTable.cvars = {
   wholechatwindowclickable = 1,
   windowresizelock = 0,
   worldbasemip = 2,
+  worldquestfilteranima = 1,
   worldquestfilterartifactpower = 1,
   worldquestfilterequipment = 1,
   worldquestfiltergold = 1,
