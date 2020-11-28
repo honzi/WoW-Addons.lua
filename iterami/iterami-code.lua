@@ -15,6 +15,7 @@ hooksecurefunc(
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
+MinimapBorder:SetTexture();
 RegisterStateDriver(
   PlayerFrameGroupIndicator,
   "visibility",
