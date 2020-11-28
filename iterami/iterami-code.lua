@@ -15,7 +15,10 @@ hooksecurefunc(
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
-MinimapBorder:SetTexture();
+MinimapBorder:Hide();
+MiniMapWorldMapButton:Hide();
+MinimapZoomIn:Hide();
+MinimapZoomOut:Hide();
 RegisterStateDriver(
   PlayerFrameGroupIndicator,
   "visibility",
