@@ -15,7 +15,9 @@ hooksecurefunc(
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
+Minimap:SetMaskTexture("Interface\\ChatFrame\\ChatFrameBackground");
 MinimapBorder:Hide();
+MinimapNorthTag:SetAlpha(0);
 MiniMapWorldMapButton:Hide();
 MinimapZoomIn:Hide();
 MinimapZoomOut:Hide();
