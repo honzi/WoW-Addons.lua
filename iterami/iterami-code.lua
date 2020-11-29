@@ -57,11 +57,19 @@ frame:SetScript(
 );
 function update_colors(type, frame, framebackground)
     local classcolor = RAID_CLASS_COLORS[select(2, UnitClass(type))];
-    framebackground:SetVertexColor(
-      classcolor.r,
-      classcolor.g,
-      classcolor.b
-    );
+    if classcolor ~= nil then
+        framebackground:SetVertexColor(
+          classcolor.r,
+          classcolor.g,
+          classcolor.b
+        );
+    else
+        framebackground:SetVertexColor(
+          0,
+          0,
+          0
+        );
+    end
 
     local reaction = UnitReaction(type, "player");
     if reaction == nil then
