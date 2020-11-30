@@ -17,6 +17,7 @@ MainMenuBarArtFrame.RightEndCap:Hide();
 MainMenuBarArtFrameBackground:Hide();
 Minimap:SetMaskTexture("Interface\\ChatFrame\\ChatFrameBackground");
 MinimapBorder:Hide();
+MinimapBorderTop:Hide();
 MinimapNorthTag:SetAlpha(0);
 MiniMapWorldMapButton:Hide();
 MinimapZoomIn:Hide();
