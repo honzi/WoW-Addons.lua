@@ -35,6 +35,7 @@ RegisterStateDriver(
 
 -- Add color target/focus frames based on unit class and reaction.
 local frame = CreateFrame("FRAME");
+frame:RegisterEvent("GROUP_ROSTER_UPDATE");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
 frame:SetScript(
