@@ -38,6 +38,7 @@ local frame = CreateFrame("FRAME");
 frame:RegisterEvent("GROUP_ROSTER_UPDATE");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
+frame:RegisterEvent("UNIT_FACTION");
 frame:SetScript(
   "OnEvent",
   function(self, event, ...)
