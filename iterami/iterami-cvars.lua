@@ -281,7 +281,6 @@ addonTable.cvars = {
   usehighresolutionuitextures = 0,
   violencelevel = 5,
   voiceenablewhengameisinbg = 0,
-  voiceinputvolume = 0,
   voiceselfmuted = 1,
   volumefoglevel = 0,
   wardrobeshowcollected = 1,
