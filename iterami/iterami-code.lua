@@ -132,7 +132,6 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-print(key .. " " .. value);
         local default = tostring(addonTable.cvars[value]);
         if tostring(GetCVar(value)) ~= default then
             print(value .. "=" .. default .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
