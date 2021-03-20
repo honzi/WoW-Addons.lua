@@ -88,7 +88,7 @@ function update_colors(type, frame, subframe, background)
               classcolor.b
             );
         else
-            frame.healthbar:SetStatusBarColor(
+            frame.name:SetTextColor(
               classcolor.r,
               classcolor.g,
               classcolor.b
@@ -104,22 +104,22 @@ function update_colors(type, frame, subframe, background)
         end
     end
 
-    local reaction = UnitReaction(type, "player");
-    if reaction == nil then
-        reaction = 0;
-    end
-
-    local green = 0;
-    local red = 0;
-    if reaction <= 4 then
-        red = 1;
-    end
-    if reaction >= 4 then
-        green = 1;
-    end
-    frame.name:SetTextColor(red, green, 0);
-
     if background == true then
+        local reaction = UnitReaction(type, "player");
+        if reaction == nil then
+            reaction = 0;
+        end
+
+        local green = 0;
+        local red = 0;
+        if reaction <= 4 then
+            red = 1;
+        end
+        if reaction >= 4 then
+            green = 1;
+        end
+
+        frame.name:SetTextColor(red, green, 0);
         frame.levelText:SetTextColor(red, green, 0);
     end
 end
