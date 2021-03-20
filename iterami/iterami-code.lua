@@ -46,16 +46,14 @@ frame:SetScript(
           update_colors(
             "focus",
             FocusFrame,
-            FocusFrameNameBackground,
-            true
+            FocusFrameNameBackground
           );
 
           if UnitExists("focustarget") then
               update_colors(
                 "focustarget",
                 FocusFrameToT,
-                FocusFrameToTHealthBar,
-                false
+                FocusFrameToTHealthBar
               );
           end
       end
@@ -63,64 +61,60 @@ frame:SetScript(
           update_colors(
             "target",
             TargetFrame,
-            TargetFrameNameBackground,
-            true
+            TargetFrameNameBackground
           );
 
           if UnitExists("targettarget") then
-              update_colors(
+              update_colors_tot(
                 "targettarget",
                 TargetFrameToT,
-                TargetFrameToTHealthBar,
-                false
+                TargetFrameToTHealthBar
               );
           end
       end
   end
 );
-function update_colors(type, frame, subframe, background)
+function update_colors(type, frame, subframe)
     local classcolor = RAID_CLASS_COLORS[select(2, UnitClass(type))];
     if classcolor ~= nil then
-        if background == true then
-            subframe:SetVertexColor(
-              classcolor.r,
-              classcolor.g,
-              classcolor.b
-            );
-        else
-            frame.name:SetTextColor(
-              classcolor.r,
-              classcolor.g,
-              classcolor.b
-            );
-        end
+        subframe:SetVertexColor(
+          classcolor.r,
+          classcolor.g,
+          classcolor.b
+        );
     else
-        if background == true then
-            subframe:SetVertexColor(
-              0,
-              0,
-              0
-            );
-        end
+        subframe:SetVertexColor(
+          0,
+          0,
+          0
+        );
     end
 
-    if background == true then
-        local reaction = UnitReaction(type, "player");
-        if reaction == nil then
-            reaction = 0;
-        end
+    local reaction = UnitReaction(type, "player");
+    if reaction == nil then
+        reaction = 0;
+    end
 
-        local green = 0;
-        local red = 0;
-        if reaction <= 4 then
-            red = 1;
-        end
-        if reaction >= 4 then
-            green = 1;
-        end
+    local green = 0;
+    local red = 0;
+    if reaction <= 4 then
+        red = 1;
+    end
+    if reaction >= 4 then
+        green = 1;
+    end
 
-        frame.name:SetTextColor(red, green, 0);
-        frame.levelText:SetTextColor(red, green, 0);
+    frame.levelText:SetTextColor(red, green, 0);
+    frame.name:SetTextColor(red, green, 0);
+end
+function update_colors_tot(type, frame)
+    local classcolor = RAID_CLASS_COLORS[select(2, UnitClass(type))];
+    if classcolor ~= nil then
+        frame.name:SetTextColor(
+          classcolor.r,
+          classcolor.g,
+          classcolor.b
+        );
     end
 end
 
