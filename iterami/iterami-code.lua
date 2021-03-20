@@ -46,32 +46,62 @@ frame:SetScript(
           update_colors(
             "focus",
             FocusFrame,
-            FocusFrameNameBackground
+            FocusFrameNameBackground,
+            true
           );
+
+          if UnitExists("focustarget") then
+              update_colors(
+                "focustarget",
+                FocusFrameToT,
+                FocusFrameToTHealthBar,
+                false
+              );
+          end
       end
       if UnitExists("target") then
           update_colors(
             "target",
             TargetFrame,
-            TargetFrameNameBackground
+            TargetFrameNameBackground,
+            true
           );
+
+          if UnitExists("targettarget") then
+              update_colors(
+                "targettarget",
+                TargetFrameToT,
+                TargetFrameToTHealthBar,
+                false
+              );
+          end
       end
   end
 );
-function update_colors(type, frame, framebackground)
+function update_colors(type, frame, subframe, background)
     local classcolor = RAID_CLASS_COLORS[select(2, UnitClass(type))];
     if classcolor ~= nil then
-        framebackground:SetVertexColor(
-          classcolor.r,
-          classcolor.g,
-          classcolor.b
-        );
+        if background == true then
+            subframe:SetVertexColor(
+              classcolor.r,
+              classcolor.g,
+              classcolor.b
+            );
+        else
+            frame.healthbar:SetStatusBarColor(
+              classcolor.r,
+              classcolor.g,
+              classcolor.b
+            );
+        end
     else
-        framebackground:SetVertexColor(
-          0,
-          0,
-          0
-        );
+        if background == true then
+            subframe:SetVertexColor(
+              0,
+              0,
+              0
+            );
+        end
     end
 
     local reaction = UnitReaction(type, "player");
@@ -87,8 +117,11 @@ function update_colors(type, frame, framebackground)
     if reaction >= 4 then
         green = 1;
     end
-    frame.levelText:SetTextColor(red, green, 0);
     frame.name:SetTextColor(red, green, 0);
+
+    if background == true then
+        frame.levelText:SetTextColor(red, green, 0);
+    end
 end
 
 -- Add extra mana display for druids.
