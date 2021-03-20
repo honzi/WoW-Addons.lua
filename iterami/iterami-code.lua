@@ -132,22 +132,16 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        pcall(
-          handle_config,
-          value
-        );
+        local default = tostring(addonTable.cvars[value]);
+        if tostring(GetCVar(value)) ~= default then
+            print(value .. "=" .. default .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
+        end
     end
 
     C_VoiceChat.SetMuted(true);
     SetActionBarToggles(1, 1, 1, 0, 0);
 
     print(date("%H:%M:%S") .. ": /iterami_config");
-end
-function handle_config(value)
-    local default = tostring(addonTable.cvars[value]);
-    if tostring(GetCVar(value)) ~= default then
-        print(value .. "=" .. default .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
-    end
 end
 
 -- Slash command for printing CVars that have values that differ from iterami defaults.
@@ -160,17 +154,11 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        pcall(
-          handle_print,
-          value
-        );
+        local cvar_value = tostring(GetCVar(value));
+        if cvar_value ~= tostring(addonTable.cvars[value]) then
+            print(value .. "=" .. cvar_value .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. GetCVarDefault(value));
+        end
     end
 
     print(date("%H:%M:%S") .. ": /iterami_print");
-end
-function handle_print(value)
-    local cvar_value = tostring(GetCVar(value));
-    if cvar_value ~= tostring(addonTable.cvars[value]) then
-        print(value .. "=" .. cvar_value .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. GetCVarDefault(value));
-    end
 end
