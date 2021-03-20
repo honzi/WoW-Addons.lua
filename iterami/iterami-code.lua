@@ -39,6 +39,7 @@ frame:RegisterEvent("GROUP_ROSTER_UPDATE");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
 frame:RegisterEvent("UNIT_FACTION");
+frame:RegisterEvent("UNIT_TARGET");
 frame:SetScript(
   "OnEvent",
   function(self, event, ...)
@@ -50,10 +51,9 @@ frame:SetScript(
           );
 
           if UnitExists("focustarget") then
-              update_colors(
+              update_colors_tot(
                 "focustarget",
-                FocusFrameToT,
-                FocusFrameToTHealthBar
+                FocusFrameToT
               );
           end
       end
