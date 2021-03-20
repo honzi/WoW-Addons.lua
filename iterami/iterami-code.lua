@@ -67,8 +67,7 @@ frame:SetScript(
           if UnitExists("targettarget") then
               update_colors_tot(
                 "targettarget",
-                TargetFrameToT,
-                TargetFrameToTHealthBar
+                TargetFrameToT
               );
           end
       end
