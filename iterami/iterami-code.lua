@@ -160,7 +160,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     for key,value in ipairs(keys) do
         local cvar_default = GetCVarDefault(value);
         if cvar_default == nil then
-            print(value .. "=nil!");
+            print(value .. " has no default value!");
         else
             local default = tostring(addonTable.cvars[value]);
             if tostring(GetCVar(value)) ~= default then
@@ -187,7 +187,7 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     for key,value in ipairs(keys) do
         local cvar_default = GetCVarDefault(value);
         if cvar_default == nil then
-            print(value .. "=nil!");
+            print(value .. " has no default value!");
         else
             local cvar_value = tostring(GetCVar(value));
             if cvar_value ~= tostring(addonTable.cvars[value]) then
