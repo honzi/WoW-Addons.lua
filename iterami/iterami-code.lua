@@ -118,7 +118,8 @@ function update_colors_tot(type, frame)
 end
 
 -- Add extra mana display for druids.
-if UnitClass("player") == "Druid" then
+local localizedclassname, classname = UnitClass("player");
+if classname == "DRUID" then
     local druidframe = CreateFrame(
       "FRAME",
       nil,
