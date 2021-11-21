@@ -158,7 +158,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        local cvar_default = GetCvarDefault(value);
+        local cvar_default = GetCVarDefault(value);
         if cvar_default == nil then
             print(value .. "=nil!");
         else
@@ -185,7 +185,7 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        local cvar_default = GetCvarDefault(value);
+        local cvar_default = GetCVarDefault(value);
         if cvar_default == nil then
             print(value .. "=nil!");
         else
