@@ -123,6 +123,7 @@ handle_reputation:RegisterEvent("CHAT_MSG_COMBAT_FACTION_CHANGE");
 handle_reputation:SetScript(
   "OnEvent",
   function(self, event, ...)
+      local text = ...;
       local pattern = string.gsub(
         string.gsub(
           FACTION_STANDING_INCREASED,
