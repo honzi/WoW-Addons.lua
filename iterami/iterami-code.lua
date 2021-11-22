@@ -34,13 +34,13 @@ RegisterStateDriver(
 );
 
 -- Add color target/focus frames based on unit class and reaction.
-local frame = CreateFrame("FRAME");
-frame:RegisterEvent("GROUP_ROSTER_UPDATE");
-frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
-frame:RegisterEvent("PLAYER_TARGET_CHANGED");
-frame:RegisterEvent("UNIT_FACTION");
-frame:RegisterEvent("UNIT_TARGET");
-frame:SetScript(
+local handle_colors = CreateFrame("FRAME");
+handle_colors:RegisterEvent("GROUP_ROSTER_UPDATE");
+handle_colors:RegisterEvent("PLAYER_FOCUS_CHANGED");
+handle_colors:RegisterEvent("PLAYER_TARGET_CHANGED");
+handle_colors:RegisterEvent("UNIT_FACTION");
+handle_colors:RegisterEvent("UNIT_TARGET");
+handle_colors:SetScript(
   "OnEvent",
   function(self, event, ...)
       if UnitExists("focus") then
@@ -116,6 +116,37 @@ function update_colors_tot(type, frame)
         );
     end
 end
+
+-- Update watched faction reputation.
+local handle_reputation = CreateFrame("FRAME");
+handle_reputation:RegisterEvent("CHAT_MSG_COMBAT_FACTION_CHANGE");
+handle_reputation:SetScript(
+  "OnEvent",
+  function(self, event, ...)
+      local pattern = string.gsub(
+        string.gsub(
+          FACTION_STANDING_INCREASED,
+          "(%%s)",
+          "(.+)"
+        ),
+        "(%%d)",
+        "(.+)"
+      );
+      local start, end, faction = string.find(
+        text,
+        pattern
+      );
+
+      if faction and faction ~= GetWatchedFactionInfo() then
+          for index = 1, GetNumFactions() do
+              if GetFactionInfo(index) == faction then
+                  SetWatchedFactionIndex(index);
+                  break;
+              end
+          end
+      end
+  end
+);
 
 -- Add extra mana display for druids.
 local localizedclassname, classname = UnitClass("player");
