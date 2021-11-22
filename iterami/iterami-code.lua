@@ -132,7 +132,7 @@ handle_reputation:SetScript(
         "(%%d)",
         "(.+)"
       );
-      local start, end, faction = string.find(
+      local _, _, faction = string.find(
         text,
         pattern
       );
@@ -149,7 +149,7 @@ handle_reputation:SetScript(
 );
 
 -- Add extra mana display for druids.
-local localizedclassname, classname = UnitClass("player");
+local _, classname = UnitClass("player");
 if classname == "DRUID" then
     local druidframe = CreateFrame(
       "FRAME",
