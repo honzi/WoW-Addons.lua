@@ -181,7 +181,7 @@ if classname == "DRUID" then
     );
 
     local spec = GetSpecialization();
-    if spec and spec == 102 then
+    if spec and spec == 1 then
         local boomkinframe = CreateFrame(
           "FRAME",
           nil,
