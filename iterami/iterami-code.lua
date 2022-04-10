@@ -176,40 +176,15 @@ if classname == "DRUID" then
     druidframe:SetScript(
       "OnEvent",
       function(self, event, ...)
-          self.text:SetText(UnitPower("player", 0) .. "/" .. UnitPowerMax("player", 0));
+          local power = UnitPower("player", 0) .. "/" .. UnitPowerMax("player", 0);
+          local spec = GetSpecialization();
+          if spec and spec == 1 then
+              power = power .. ", " .. UnitPower("player", 8);
+          end
+
+          self.text:SetText(power);
       end
     );
-
-    local spec = GetSpecialization();
-    if spec and spec == 1 then
-        local boomkinframe = CreateFrame(
-          "FRAME",
-          nil,
-          PlayerFrame
-        );
-        boomkinframe:SetPoint(
-          "CENTER",
-          PlayerFrame,
-          100,
-          40
-        );
-        boomkinframe:SetSize(1, 1);
-        boomkinframe.text = boomkinframe:CreateFontString(
-          nil,
-          "OVERLAY",
-          "GameFontNormal"
-        );
-        boomkinframe.text:SetPoint("CENTER");
-
-        boomkinframe:RegisterEvent("UNIT_POWER_FREQUENT");
-        boomkinframe:RegisterEvent("UPDATE_SHAPESHIFT_FORM");
-        boomkinframe:SetScript(
-          "OnEvent",
-          function(self, event, ...)
-              self.text:SetText(UnitPower("player", 8) .. "/" .. UnitPowerMax("player", 8));
-          end
-        );
-    end
 end
 
 -- Slash command for setting CVar values to iterami defaults.
