@@ -179,6 +179,37 @@ if classname == "DRUID" then
           self.text:SetText(UnitPower("player", 0) .. "/" .. UnitPowerMax("player", 0));
       end
     );
+
+    local spec = GetSpecialization();
+    if spec and spec == 102 then
+        local boomkinframe = CreateFrame(
+          "FRAME",
+          nil,
+          PlayerFrame
+        );
+        boomkinframe:SetPoint(
+          "CENTER",
+          PlayerFrame,
+          100,
+          40
+        );
+        boomkinframe:SetSize(1, 1);
+        boomkinframe.text = boomkinframe:CreateFontString(
+          nil,
+          "OVERLAY",
+          "GameFontNormal"
+        );
+        boomkinframe.text:SetPoint("CENTER");
+
+        boomkinframe:RegisterEvent("UNIT_POWER_FREQUENT");
+        boomkinframe:RegisterEvent("UPDATE_SHAPESHIFT_FORM");
+        boomkinframe:SetScript(
+          "OnEvent",
+          function(self, event, ...)
+              self.text:SetText(UnitPower("player", 8) .. "/" .. UnitPowerMax("player", 8));
+          end
+        );
+    end
 end
 
 -- Slash command for setting CVar values to iterami defaults.
