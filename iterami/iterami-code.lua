@@ -178,8 +178,12 @@ if classname == "DRUID" then
       function(self, event, ...)
           local power = UnitPower("player", 0) .. "/" .. UnitPowerMax("player", 0);
           local spec = GetSpecialization();
-          if spec and spec == 1 then
-              power = power .. ", " .. UnitPower("player", 8);
+          if spec then
+              if spec == 1 then
+                  power = power .. ", " .. UnitPower("player", 8);
+              elseif spec == 2 then
+                  power = power .. ", " .. UnitPower("player", 3);
+              end
           end
 
           self.text:SetText(power);
