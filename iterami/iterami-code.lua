@@ -1,5 +1,11 @@
 local addonName, addonTable = ...;
 
+local cvarkeys = {};
+for key in pairs(addonTable.cvars) do
+    table.insert(cvarkeys, key);
+end
+table.sort(cvarkeys);
+
 -- Anchor tooltips to mouse.
 hooksecurefunc(
   "GameTooltip_SetDefaultAnchor",
@@ -194,13 +200,7 @@ end
 -- Slash command for setting CVar values to iterami defaults.
 SLASH_ITERAMI_CONFIG1 = "/iterami_config";
 function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
-    local keys = {};
-    for key in pairs(addonTable.cvars) do
-        table.insert(keys, key);
-    end
-    table.sort(keys);
-
-    for key,value in ipairs(keys) do
+    for key,value in ipairs(cvarkeys) do
         if C_CVar.GetCVarDefault(value) == nil then
             print(value .. " has no default value!");
         else
@@ -220,13 +220,7 @@ end
 -- Slash command for printing CVars that have values that differ from iterami defaults.
 SLASH_ITERAMI_PRINT1 = "/iterami_print";
 function SlashCmdList.ITERAMI_PRINT(msg, editbox)
-    local keys = {};
-    for key in pairs(addonTable.cvars) do
-        table.insert(keys, key);
-    end
-    table.sort(keys);
-
-    for key,value in ipairs(keys) do
+    for key,value in ipairs(cvarkeys) do
         local cvar_default = C_CVar.GetCVarDefault(value);
         if cvar_default == nil then
             print(value .. " has no default value!");
