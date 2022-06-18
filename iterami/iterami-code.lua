@@ -201,13 +201,13 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        local cvar_default = GetCVarDefault(value);
+        local cvar_default = C_CVar.GetCVarDefault(value);
         if cvar_default == nil then
             print(value .. " has no default value!");
         else
             local default = tostring(addonTable.cvars[value]);
-            if tostring(GetCVar(value)) ~= default then
-                print(value .. "=" .. default .. ": " .. tostring(SetCVar(value, addonTable.cvars[value])));
+            if tostring(C_CVar.GetCVar(value)) ~= default then
+                print(value .. "=" .. default .. ": " .. tostring(C_CVar.SetCVar(value, addonTable.cvars[value])));
             end
         end
     end
@@ -228,11 +228,11 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        local cvar_default = GetCVarDefault(value);
+        local cvar_default = C_CVar.GetCVarDefault(value);
         if cvar_default == nil then
             print(value .. " has no default value!");
         else
-            local cvar_value = tostring(GetCVar(value));
+            local cvar_value = tostring(C_CVar.GetCVar(value));
             if cvar_value ~= tostring(addonTable.cvars[value]) then
                 print(value .. "=" .. cvar_value .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. cvar_default);
             end
