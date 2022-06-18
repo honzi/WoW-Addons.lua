@@ -1,7 +1,7 @@
 local addonName, addonTable = ...;
 
 -- iterami CVar values.
-addonTable.cvars = "{
+addonTable.cvars = {
   actionbuttonusekeydown = "1",
   addfriendinfoshown = "1",
   advancedcombatlogging = "0",
