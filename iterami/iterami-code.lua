@@ -201,8 +201,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     table.sort(keys);
 
     for key,value in ipairs(keys) do
-        local cvar_default = C_CVar.GetCVarDefault(value);
-        if cvar_default == nil then
+        if C_CVar.GetCVarDefault(value) == nil then
             print(value .. " has no default value!");
         else
             local default = addonTable.cvars[value];
