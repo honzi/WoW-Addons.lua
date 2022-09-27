@@ -214,7 +214,7 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     C_VoiceChat.SetMuted(true);
     SetActionBarToggles(1, 1, 1, 0, 0);
 
-    print(date("%H:%M:%S") .. ": /iterami_config");
+    print(date("%H:%M:%S") .. " /iterami_config");
 end
 
 -- Slash command for printing CVars that have values that differ from iterami defaults.
@@ -232,5 +232,5 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
         end
     end
 
-    print(date("%H:%M:%S") .. ": /iterami_print");
+    print(date("%H:%M:%S") .. " /iterami_print");
 end
