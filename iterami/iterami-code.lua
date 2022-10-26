@@ -17,27 +17,8 @@ hooksecurefunc(
   end
 );
 
--- Hide various default UI frames.
-MainMenuBarArtFrame.LeftEndCap:Hide();
-MainMenuBarArtFrame.RightEndCap:Hide();
-MainMenuBarArtFrameBackground:Hide();
+-- Modify various default UI frames.
 Minimap:SetMaskTexture("Interface\\ChatFrame\\ChatFrameBackground");
-MinimapBorder:Hide();
-MinimapBorderTop:Hide();
-MinimapNorthTag:SetAlpha(0);
-MiniMapWorldMapButton:Hide();
-MinimapZoomIn:Hide();
-MinimapZoomOut:Hide();
-RegisterStateDriver(
-  PlayerFrameGroupIndicator,
-  "visibility",
-  "hide"
-);
-RegisterStateDriver(
-  StanceBarFrame,
-  "visibility",
-  "hide"
-);
 
 -- Add color target/focus frames based on unit class and reaction.
 local handle_colors = CreateFrame("FRAME");
