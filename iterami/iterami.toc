@@ -1,7 +1,7 @@
 ## Interface: 100000
 ## Notes: https://github.com/iterami/WoW-Addons.lua
-## Title: iterami for 10.0.0.46293
-## Version: 10.0.0.46293
+## Title: iterami for 10.0.0.46313
+## Version: 10.0.0.46313
 
 iterami-cvars.lua
 iterami-code.lua
