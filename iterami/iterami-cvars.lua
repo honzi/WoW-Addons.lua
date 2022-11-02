@@ -251,6 +251,7 @@ addonTable.cvars = {
   synchronizesettings = "1",
   taintlog = "0",
   targetfps = "0",
+  targetenemyattacker = "1",
   targetnearestusenew = "0",
   targetprioritycombatlock = "0",
   targetprioritypvp = "2",
