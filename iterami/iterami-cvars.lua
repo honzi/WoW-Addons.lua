@@ -62,7 +62,6 @@ addonTable.cvars = {
   deselectonclick = "1",
   disableaelooting = "0",
   disableautorealmselect = "0",
-  displayfreebagslots = "1",
   displayspellactivationoverlays = "1",
   displayworldpvpobjectives = "1",
   donotflashlowhealthwarning = "1",
