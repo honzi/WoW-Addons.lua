@@ -1,7 +1,7 @@
 ## Interface: 100105
 ## Notes: https://github.com/honzi/WoW-Addons.lua
-## Title: iterami for 10.1.5.50438
-## Version: 10.1.5.50438
+## Title: iterami for 10.1.5.50469
+## Version: 10.1.5.50469
 
 iterami-cvars.lua
 iterami-code.lua
