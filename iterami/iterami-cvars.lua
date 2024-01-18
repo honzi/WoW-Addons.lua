@@ -114,7 +114,6 @@ addonTable.cvars = {
   footstepsounds = "1",
   forceresolutiondefaulttomaxsize = "0",
   friendsviewbuttons = "0",
-  fulldump = "0",
   gamepadenable = "0",
   graphicsdeptheffects = "0",
   graphicsenvironmentdetail = "1",
