@@ -94,9 +94,9 @@ if classname == "DRUID" then
     );
 end
 
--- Slash command for setting CVar values to iterami defaults.
-SLASH_ITERAMI_CONFIG1 = "/iterami_config";
-function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
+-- Slash command for setting CVar values to Honzi's defaults.
+SLASH_HONZI_CONFIG1 = "/honzi_config";
+function SlashCmdList.HONZI_CONFIG(msg, editbox)
     for key,value in ipairs(cvarkeys) do
         if C_CVar.GetCVarDefault(value) == nil then
             print(value .. " has no default value!");
@@ -111,12 +111,12 @@ function SlashCmdList.ITERAMI_CONFIG(msg, editbox)
     C_VoiceChat.SetMuted(true);
     SetActionBarToggles(1, 1, 1, 0, 0);
 
-    print(date("%H:%M:%S") .. " /iterami_config");
+    print(date("%H:%M:%S") .. " /honzi_config");
 end
 
--- Slash command for printing CVars that have values that differ from iterami defaults.
-SLASH_ITERAMI_PRINT1 = "/iterami_print";
-function SlashCmdList.ITERAMI_PRINT(msg, editbox)
+-- Slash command for printing CVars that have values that differ from Honzi's defaults.
+SLASH_HONZI_PRINT1 = "/honzi_print";
+function SlashCmdList.HONZI_PRINT(msg, editbox)
     for key,value in ipairs(cvarkeys) do
         local cvar_default = C_CVar.GetCVarDefault(value);
         if cvar_default == nil then
@@ -124,10 +124,10 @@ function SlashCmdList.ITERAMI_PRINT(msg, editbox)
         else
             local cvar_value = C_CVar.GetCVar(value);
             if cvar_value ~= addonTable.cvars[value] then
-                print(value .. "=" .. cvar_value .. ", iterami=" .. addonTable.cvars[value] .. ", default=" .. cvar_default);
+                print(value .. "=" .. cvar_value .. ", honzi=" .. addonTable.cvars[value] .. ", default=" .. cvar_default);
             end
         end
     end
 
-    print(date("%H:%M:%S") .. " /iterami_print");
+    print(date("%H:%M:%S") .. " /honzi_print");
 end

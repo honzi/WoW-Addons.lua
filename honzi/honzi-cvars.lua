@@ -1,6 +1,6 @@
 local addonName, addonTable = ...;
 
--- iterami CVar values.
+-- Honzi's CVar values.
 addonTable.cvars = {
   actionbuttonusekeydown = "1",
   addfriendinfoshown = "1",
