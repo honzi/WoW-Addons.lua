@@ -41,10 +41,10 @@ handle_reputation:SetScript(
         pattern
       );
 
-      if faction and faction ~= GetWatchedFactionInfo() then
-          for index = 1, GetNumFactions() do
-              if GetFactionInfo(index) == faction then
-                  SetWatchedFactionIndex(index);
+      if faction and faction ~= C_Reputation.GetWatchedFactionData().name then
+          for index = 1, C_Reputation.GetNumFactions() do
+              if C_Reputation.GetFactionDataByIndex(index) == faction then
+                  C_Reputation.SetWatchedFactionByIndex(index);
                   break;
               end
           end
