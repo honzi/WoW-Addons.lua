@@ -1,7 +1,7 @@
-## Interface: 110107
+## Interface: 110200
 ## Notes: https://github.com/honzi/WoW-Addons.lua
-## Title: Honzi's Addon for 110107
-## Version: 110107
+## Title: Honzi's Addon for 110200
+## Version: 110200
 
 honzi-cvars.lua
 honzi-code.lua
