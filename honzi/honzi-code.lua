@@ -21,6 +21,7 @@ hooksecurefunc(
 Minimap:SetMaskTexture("Interface\\ChatFrame\\ChatFrameBackground");
 
 -- Update watched faction reputation.
+--[[
 local handle_reputation = CreateFrame("FRAME");
 handle_reputation:RegisterEvent("CHAT_MSG_COMBAT_FACTION_CHANGE");
 handle_reputation:SetScript(
@@ -51,6 +52,7 @@ handle_reputation:SetScript(
       end
   end
 );
+]]
 
 -- Add extra mana display for druids.
 local _, classname = UnitClass("player");
