@@ -153,7 +153,6 @@ addonTable.cvars = {
   particlemtdensity = "10",
   particulatesenabled = "1",
   physicslevel = "0",
-  predictedhealth = "1",
   preventosidlesleep = "0",
   profanityfilter = "0",
   projectedtextures = "1",
