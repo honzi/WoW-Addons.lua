@@ -1,7 +1,7 @@
-## Interface: 120005
+## Interface: 120007
 ## Notes: https://github.com/honzi/WoW-Addons.lua
-## Title: Honzi's Addon for 120005
-## Version: 120005
+## Title: Honzi's Addon for 120007
+## Version: 120007
 
 honzi-cvars.lua
 honzi-code.lua
